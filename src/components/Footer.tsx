@@ -88,14 +88,6 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 space-y-4 md:space-y-0">
           <p>© {new Date().getFullYear()} IEEE WIE AMU Affinity Group. All rights reserved.</p>
-          <div className="flex space-x-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <div className="flex items-center space-x-2">
-              <span>Powered by</span>
-              <span className="font-bold text-gray-400">IEEE AMU</span>
-            </div>
-          </div>
         </div>
       </div>
     </footer>
