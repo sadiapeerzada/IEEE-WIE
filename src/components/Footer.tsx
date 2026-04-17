@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-wie-dark text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
@@ -39,7 +39,7 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="md:ml-auto">
             <h3 className="font-serif text-xl mb-6 text-wie-gold">Quick Links</h3>
             <ul className="space-y-4 text-sm text-gray-400">
               <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
@@ -51,7 +51,7 @@ export default function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="md:ml-auto">
             <h3 className="font-serif text-xl mb-6 text-wie-gold">Contact Us</h3>
             <ul className="space-y-4 text-sm text-gray-400">
               <li className="flex items-start space-x-3">
@@ -67,22 +67,6 @@ export default function Footer() {
                 <span>+91 74648 89194, +91 81271 94823</span>
               </li>
             </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div>
-            <h3 className="font-serif text-xl mb-6 text-wie-gold">Newsletter</h3>
-            <p className="text-sm text-gray-400 mb-4">Stay updated with our latest events and initiatives.</p>
-            <form className="flex flex-col space-y-2">
-              <input 
-                type="email" 
-                placeholder="Your email address" 
-                className="bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-wie-gold transition-colors"
-              />
-              <button className="bg-wie-gold text-wie-dark font-bold py-2 rounded-lg text-sm hover:bg-white transition-colors">
-                Subscribe
-              </button>
-            </form>
           </div>
         </div>
 

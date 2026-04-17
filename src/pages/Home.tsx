@@ -183,7 +183,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Voices of WIE */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
@@ -236,31 +236,6 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter CTA */}
-      <section className="py-20">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="bg-wie-dark rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
-            <div className="absolute top-0 left-0 w-full h-full animated-gradient opacity-10"></div>
-            <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-6">Stay Inspired</h2>
-              <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
-                Join our newsletter to receive updates on upcoming workshops, networking events, and opportunities to lead.
-              </p>
-              <form className="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email" 
-                  className="flex-1 bg-white/10 border border-white/20 rounded-full px-8 py-4 text-white focus:outline-none focus:border-wie-gold transition-all"
-                />
-                <button className="bg-wie-gold text-wie-dark font-bold px-10 py-4 rounded-full hover:bg-white transition-all shadow-lg">
-                  Subscribe
-                </button>
-              </form>
-            </div>
           </div>
         </div>
       </section>

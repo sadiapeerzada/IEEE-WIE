@@ -38,6 +38,9 @@ function EventCard({ event, idx }: { event: any; idx: number; key?: string | num
               src={event.images[currentImage]}
               className="absolute inset-0 w-full h-full object-cover"
               referrerPolicy="no-referrer"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = `https://picsum.photos/seed/${event.id}-${currentImage}/800/600`;
+              }}
             />
             <div className="absolute inset-0 bg-black/10 transition-opacity group-hover:opacity-0"></div>
             
@@ -299,11 +302,13 @@ const events = [
     location: "ZHCET Seminar Hall",
     category: "Technical",
     session: "2024–2025",
-    description: "An intensive technical session exploring emerging trends in power electronics, covering vehicle dynamics and propulsion converters.",
+    description: "An intensive technical session exploring emerging trends in power electronics. Focused on electric vehicle (EV) dynamics, propulsion converters, and sustainable energy integration, featuring international experts from Taiwan's leading research institutions.",
     images: [
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800",
       "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800"
+      "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800"
     ]
   },
   {
