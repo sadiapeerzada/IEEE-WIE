@@ -118,16 +118,20 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Map Placeholder */}
-      <section className="h-[400px] w-full bg-gray-200 relative overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <MapPin size={48} className="text-wie-purple mx-auto mb-4 opacity-50" />
-            <p className="text-gray-500 font-serif italic">Interactive Map Coming Soon</p>
-          </div>
+      {/* Map Section */}
+      <section className="w-full h-[500px] relative mt-16 px-4 max-w-7xl mx-auto mb-24">
+        <div className="w-full h-full rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3525.8647468153493!2d78.07724217544093!3d27.906103676063688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974a4855669b6a1%3A0xc5468d601d2d0b5d!2sZakir%20Husain%20College%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sin!4v1713354000000!5m2!1sen!2sin" 
+            width="100%" 
+            height="100%" 
+            style={{ border: 0 }} 
+            allowFullScreen={true} 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+            title="ZHCET Location Map"
+          />
         </div>
-        {/* In a real app, you'd embed a Google Map here */}
-        <img src="https://picsum.photos/seed/map/1920/400?grayscale&blur=2" alt="Map Placeholder" className="w-full h-full object-cover opacity-30" referrerPolicy="no-referrer" />
       </section>
     </div>
   );
