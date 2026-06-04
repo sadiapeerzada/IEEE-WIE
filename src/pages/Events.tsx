@@ -1,120 +1,56 @@
 import { motion } from "motion/react";
-import { useState, useMemo, MouseEvent } from "react";
-import { Calendar, Globe, MapPin, Filter, ArrowUpDown, Search, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useMemo } from "react";
+import { Calendar, Globe, MapPin, Filter, ArrowUpDown, Search } from "lucide-react";
 
-// Individual Event Card with Gallery Support
+// Individual Event Card (Text-Only, optimized layout)
 function EventCard({ event, idx }: { event: any; idx: number; key?: string | number }) {
-  const [currentImage, setCurrentImage] = useState(0);
-
-  const nextImage = (e: MouseEvent) => {
-    e.stopPropagation();
-    if (event.images) {
-      setCurrentImage((prev) => (prev + 1) % event.images.length);
-    }
-  };
-
-  const prevImage = (e: MouseEvent) => {
-    e.stopPropagation();
-    if (event.images) {
-      setCurrentImage((prev) => (prev - 1 + event.images.length) % event.images.length);
-    }
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: idx * 0.05 }}
-      className="group bg-white rounded-[2.5rem] border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col h-full overflow-hidden"
+      className="group bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl hover:border-wie-purple/20 transition-all duration-300 flex flex-col h-full overflow-hidden p-8 lg:p-10"
     >
-      {/* Visual Header / Gallery */}
-      <div className="relative h-48 overflow-hidden bg-wie-purple/5">
-        {event.images && event.images.length > 0 ? (
-          <div className="relative h-full w-full">
-            <motion.img
-              key={currentImage}
-              initial={{ opacity: 0.8, scale: 1.1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              src={event.images[currentImage]}
-              className="absolute inset-0 w-full h-full object-cover"
-              referrerPolicy="no-referrer"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = `https://picsum.photos/seed/${event.id}-${currentImage}/800/600`;
-              }}
-            />
-            <div className="absolute inset-0 bg-black/10 transition-opacity group-hover:opacity-0"></div>
-            
-            {event.images.length > 1 && (
-              <>
-                <div className="absolute inset-y-0 left-0 flex items-center pl-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <button 
-                    onClick={prevImage}
-                    className="p-1.5 rounded-full bg-white/80 text-wie-purple hover:bg-white shadow-sm transition-all"
-                  >
-                    <ChevronLeft size={16} />
-                  </button>
-                </div>
-                <div className="absolute inset-y-0 right-0 flex items-center pr-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <button 
-                    onClick={nextImage}
-                    className="p-1.5 rounded-full bg-white/80 text-wie-purple hover:bg-white shadow-sm transition-all"
-                  >
-                    <ChevronRight size={16} />
-                  </button>
-                </div>
-                {/* Dots indicator */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
-                  {event.images.map((_: any, i: number) => (
-                    <div 
-                      key={i} 
-                      className={`w-1.5 h-1.5 rounded-full transition-all ${i === currentImage ? "bg-white w-4" : "bg-white/50"}`}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
-        ) : (
-          <div className="absolute inset-0 bg-wie-purple/10 group-hover:bg-wie-purple/20 transition-colors" />
-        )}
-        
-        <div className="absolute top-6 left-6 flex flex-wrap gap-2 z-20">
-          <span className={`px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm flex items-center gap-1.5 font-sans ${
-            event.mode === "Online" ? "bg-blue-500 text-white" : "bg-wie-gold text-wie-dark"
-          }`}>
-            {event.mode === "Online" ? <Globe size={10} /> : <MapPin size={10} />}
-            {event.mode}
-          </span>
-          <span className="px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-wie-purple/90 text-white shadow-sm font-sans">
-            {event.type}
-          </span>
-          <span className="px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-wie-lavender text-wie-purple shadow-sm font-sans">
-            {event.session}
-          </span>
-        </div>
+      {/* Top Meta Tags / Session / Mode */}
+      <div className="flex flex-wrap gap-2 mb-6">
+        <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 font-sans ${
+          event.mode === "Online" 
+            ? "bg-blue-50 text-blue-600 border border-blue-100" 
+            : "bg-wie-gold/10 text-wie-dark border border-wie-gold/20"
+        }`}>
+          {event.mode === "Online" ? <Globe size={10} /> : <MapPin size={10} />}
+          {event.mode}
+        </span>
+        <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-wie-purple/5 text-wie-purple border border-wie-purple/10 font-sans">
+          {event.type}
+        </span>
+        <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-wie-lavender/40 text-wie-purple border border-wie-lavender/30 font-sans">
+          {event.session}
+        </span>
       </div>
 
-      {/* Content */}
-      <div className="p-10 flex-grow flex flex-col -mt-10 relative z-10 bg-white rounded-t-[2.5rem]">
-        <div className="flex items-center gap-2 text-wie-purple font-bold text-xs uppercase tracking-widest mb-4 font-sans">
+      {/* Title & Date Section */}
+      <div className="flex flex-col flex-grow">
+        <div className="flex items-center gap-2 text-wie-purple font-bold text-xs uppercase tracking-widest mb-3 font-sans">
           <Calendar size={14} className="text-wie-gold" />
           {event.displayDate}
         </div>
-        <h3 className="text-2xl font-serif font-bold text-wie-dark mb-4 leading-tight group-hover:text-wie-purple transition-colors">
+        <h3 className="text-xl lg:text-2xl font-serif font-bold text-wie-dark mb-4 leading-tight group-hover:text-wie-purple transition-colors">
           {event.title}
         </h3>
-        <p className="text-gray-500 text-sm leading-relaxed mb-8 flex-grow font-sans">
+        <p className="text-gray-500 text-sm leading-relaxed mb-6 font-sans">
           {event.description}
         </p>
-        
-        <div className="flex items-center gap-3 pt-6 border-t border-gray-50 mt-auto">
-          <div className="w-8 h-8 rounded-full bg-wie-lavender/20 flex items-center justify-center text-wie-purple">
-            {event.mode === "Online" ? <Globe size={14} /> : <MapPin size={14} />}
-          </div>
-          <span className="text-xs text-gray-400 font-medium truncate font-sans">
-            {event.location}
-          </span>
+      </div>
+      
+      {/* Footer Location Info */}
+      <div className="flex items-center gap-3 pt-6 border-t border-gray-50 mt-auto">
+        <div className="w-8 h-8 rounded-full bg-wie-lavender/20 flex items-center justify-center text-wie-purple shrink-0">
+          {event.mode === "Online" ? <Globe size={14} /> : <MapPin size={14} />}
         </div>
+        <span className="text-xs text-gray-500 font-medium truncate font-sans">
+          {event.location}
+        </span>
       </div>
     </motion.div>
   );
@@ -302,14 +238,7 @@ const events = [
     location: "ZHCET Seminar Hall",
     category: "Technical",
     session: "2024–2025",
-    description: "An intensive technical session exploring emerging trends in power electronics. Focused on electric vehicle (EV) dynamics, propulsion converters, and sustainable energy integration, featuring international experts from Taiwan's leading research institutions.",
-    images: [
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800"
-    ]
+    description: "An intensive technical session exploring emerging trends in power electronics. Focused on electric vehicle (EV) dynamics, propulsion converters, and sustainable energy integration, featuring international experts from Taiwan's leading research institutions."
   },
   {
     id: 15,
