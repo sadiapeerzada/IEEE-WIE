@@ -15,10 +15,10 @@ const leadership = [
     image: "/qurratulain.png"
   },
   {
-    name: "Faizah Fatima Zaidi",
+    name: "Sadia Aiman",
     role: "Chairperson",
     quote: "My tenure as Chairperson has been a journey of transformation, leadership, and growth. Leading such a passionate team helped me evolve both professionally and personally. Together, we achieved impactful milestones and fostered a strong sense of community. I am deeply grateful for the trust and support I received throughout. Wishing the WIE team future success, lasting impact, and good health. May the legacy of empowerment and innovation continue to thrive.",
-    image: "/faizah.png"
+    image: "/sadia.png"
   }
 ];
 

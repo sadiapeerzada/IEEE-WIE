@@ -125,6 +125,18 @@ export default function GetInvolved() {
                   </div>
                 </div>
                 <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Preferred Specialty Team</label>
+                  <select className="w-full border-b-2 border-gray-100 py-2 focus:outline-none focus:border-wie-purple transition-colors bg-transparent">
+                    <option>Design Team</option>
+                    <option>Social Media and PR</option>
+                    <option>Webmaster</option>
+                    <option>Technical</option>
+                    <option>Workshop and Project Management</option>
+                    <option>Outreach</option>
+                    <option>Editorial</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Why do you want to join WIE?</label>
                   <textarea rows={3} className="w-full border-b-2 border-gray-100 py-2 focus:outline-none focus:border-wie-purple transition-colors resize-none" placeholder="Tell us about your interests..."></textarea>
                 </div>

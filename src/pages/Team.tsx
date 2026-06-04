@@ -1,8 +1,25 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { Users, ArrowRight, Calendar } from "lucide-react";
+import { 
+  Users, 
+  ArrowRight, 
+  Calendar,
+  Palette,
+  Megaphone,
+  Globe,
+  Cpu,
+  ClipboardList,
+  HeartHandshake,
+  PenTool
+} from "lucide-react";
 
 const teamYears = [
+  {
+    year: "2022-2023",
+    label: "Session 2022-23",
+    description: "The visionary team that laid substantial groundwork for our STEM initiatives.",
+    icon: <Calendar className="text-wie-gold" />
+  },
   {
     year: "2023-2024",
     label: "Session 2023-24",
@@ -23,6 +40,51 @@ const teamYears = [
   }
 ];
 
+const specializedTeams = [
+  {
+    name: "Design Team",
+    description: "Crafting visually compelling graphics, posters, and digital assets that represent WIE's events and identity with elegant and modern aesthetic appeal.",
+    icon: <Palette className="text-wie-purple group-hover:text-wie-gold transition-colors" size={28} />,
+    color: "from-wie-purple/10 to-wie-lavender/5"
+  },
+  {
+    name: "Social Media and PR",
+    description: "Managing WIE's public presence, building connections, spreading word about our initiatives, and engaging with the community across global platforms.",
+    icon: <Megaphone className="text-wie-purple group-hover:text-wie-gold transition-colors" size={28} />,
+    color: "from-wie-lavender/10 to-wie-purple/5"
+  },
+  {
+    name: "Webmaster",
+    description: "Developing, maintaining, and continuously optimizing our official website and online portals, ensuring smooth performance and modern interactive elements.",
+    icon: <Globe className="text-wie-purple group-hover:text-wie-gold transition-colors" size={28} />,
+    color: "from-wie-purple/10 to-wie-gold/5"
+  },
+  {
+    name: "Technical Team",
+    description: "At the core of WIE's technical spirit, organizing coding bootcamps, hands-on hackathons, and research support for emerging technological advancements.",
+    icon: <Cpu className="text-wie-purple group-hover:text-wie-gold transition-colors" size={28} />,
+    color: "from-wie-gold/10 to-wie-purple/5"
+  },
+  {
+    name: "Workshop and Project Management",
+    description: "Handling the end-to-end planning, coordination, and logistics of educational workshops, seminars, and collaborative technical projects.",
+    icon: <ClipboardList className="text-wie-purple group-hover:text-wie-gold transition-colors" size={28} />,
+    color: "from-wie-purple/10 to-wie-lavender/10"
+  },
+  {
+    name: "Outreach Team",
+    description: "Spreading the benefits of STEM education to local schools and communities, driving support and social-impact programs.",
+    icon: <HeartHandshake className="text-wie-purple group-hover:text-wie-gold transition-colors" size={28} />,
+    color: "from-wie-lavender/15 to-wie-gold/5"
+  },
+  {
+    name: "Editorial Team",
+    description: "Giving voice to our group through blogs, newsletters, event reports, and magazine publications detailing the journey and achievements of our members.",
+    icon: <PenTool className="text-wie-purple group-hover:text-wie-gold transition-colors" size={28} />,
+    color: "from-wie-gold/10 to-wie-lavender/5"
+  }
+];
+
 export default function Team() {
   return (
     <div className="pt-24">
@@ -36,16 +98,21 @@ export default function Team() {
           >
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-wie-dark mb-6">Our Teams</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Explore the dedicated leaders and members who have shaped IEEE WIE AMU over the years.
+              Explore the specialized committees and the executive leadership who drive IEEE WIE AMU.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Selection Grid */}
-      <section className="py-24 bg-white">
+      {/* Leadership Sessions selection */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-serif font-bold text-wie-dark mb-4">Executive Committee Archive</h2>
+            <p className="text-gray-500 max-w-xl mx-auto">Select a session to view the dedicated office bearers who served in our executive committees over the years.</p>
+            <div className="w-24 h-1 bg-wie-gold mx-auto mt-6"></div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamYears.map((item, idx) => (
               <motion.div
                 key={idx}
@@ -71,6 +138,44 @@ export default function Team() {
                     View Team <ArrowRight size={20} />
                   </div>
                 </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Specialty Teams / Departments Section */}
+      <section className="py-24 bg-wie-lavender/5 border-t border-b border-wie-lavender/20">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-serif font-bold text-wie-dark mb-4">Our Departments</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">
+              Our affinity group operates through specialized teams designed to give every member a channel to master and apply their talents.
+            </p>
+            <div className="w-24 h-1 bg-wie-gold mx-auto mt-6"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {specializedTeams.map((dept, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.05 }}
+                className="group bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl hover:border-wie-purple/20 transition-all duration-300 flex flex-col h-full bg-gradient-to-br"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 bg-wie-lavender/10 rounded-2xl flex items-center justify-center group-hover:bg-wie-purple/10 group-hover:scale-110 transition-all duration-300">
+                    {dept.icon}
+                  </div>
+                  <h3 className="text-2xl font-serif font-bold text-wie-dark group-hover:text-wie-purple transition-colors">
+                    {dept.name}
+                  </h3>
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed flex-grow">
+                  {dept.description}
+                </p>
               </motion.div>
             ))}
           </div>

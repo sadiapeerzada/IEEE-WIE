@@ -228,10 +228,10 @@ export default function Home() {
               </p>
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-full bg-wie-purple/20 overflow-hidden border-2 border-wie-gold">
-                  <img src="https://picsum.photos/seed/chair/100/100" alt="Faizah" referrerPolicy="no-referrer" />
+                  <img src="https://picsum.photos/seed/sadia-aiman/100/100" alt="Sadia Aiman" referrerPolicy="no-referrer" />
                 </div>
                 <div>
-                  <h4 className="font-serif font-bold text-wie-dark">Faizah Fatima Zaidi</h4>
+                  <h4 className="font-serif font-bold text-wie-dark">Sadia Aiman</h4>
                   <p className="text-xs text-wie-gold font-bold uppercase tracking-widest">Chairperson</p>
                 </div>
               </div>
