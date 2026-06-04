@@ -149,9 +149,12 @@ export default function TeamYear() {
           <p className="text-gray-600 text-lg mb-10">
             We are always looking for passionate volunteers to join our executive committees and help us make a difference.
           </p>
-          <button className="bg-wie-purple text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-wie-dark transition-all shadow-xl flex items-center justify-center gap-2 mx-auto">
+          <Link 
+            to="/involved" 
+            className="bg-wie-purple text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-wie-dark transition-all shadow-xl inline-flex items-center gap-2 mx-auto"
+          >
             Volunteer Now <ExternalLink size={20} />
-          </button>
+          </Link>
         </div>
       </section>
     </div>
