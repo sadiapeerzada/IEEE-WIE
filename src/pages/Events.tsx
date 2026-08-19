@@ -1,56 +1,110 @@
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { useState, useMemo } from "react";
-import { Calendar, Globe, MapPin, Filter, ArrowUpDown, Search } from "lucide-react";
+import { Calendar, Globe, MapPin, Filter, ArrowUpDown, Search, User, Sparkles, Image as ImageIcon, X, ZoomIn } from "lucide-react";
 
-// Individual Event Card (Text-Only, optimized layout)
-function EventCard({ event, idx }: { event: any; idx: number; key?: string | number }) {
+// Individual Event Card (Supports Text & Poster highlights)
+function EventCard({ 
+  event, 
+  idx,
+  onOpenPoster
+}: { 
+  event: any; 
+  idx: number; 
+  key?: string | number;
+  onOpenPoster?: (posterUrl: string, title: string) => void;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: idx * 0.05 }}
-      className="group bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl hover:border-wie-purple/20 transition-all duration-300 flex flex-col h-full overflow-hidden p-8 lg:p-10"
+      className="group bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl hover:border-wie-purple/20 transition-all duration-300 flex flex-col h-full overflow-hidden relative"
     >
-      {/* Top Meta Tags / Session / Mode */}
-      <div className="flex flex-wrap gap-2 mb-6">
-        <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 font-sans ${
-          event.mode === "Online" 
-            ? "bg-blue-50 text-blue-600 border border-blue-100" 
-            : "bg-wie-gold/10 text-wie-dark border border-wie-gold/20"
-        }`}>
-          {event.mode === "Online" ? <Globe size={10} /> : <MapPin size={10} />}
-          {event.mode}
-        </span>
-        <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-wie-purple/5 text-wie-purple border border-wie-purple/10 font-sans">
-          {event.type}
-        </span>
-        <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-wie-lavender/40 text-wie-purple border border-wie-lavender/30 font-sans">
-          {event.session}
-        </span>
-      </div>
+      {/* Optional Poster Image Banner */}
+      {event.posterImage && (
+        <div 
+          onClick={() => onOpenPoster && onOpenPoster(event.posterImage, event.title)}
+          className="relative w-full aspect-[16/10] overflow-hidden cursor-pointer bg-wie-dark/5 group/poster border-b border-gray-100"
+        >
+          <img 
+            src={event.posterImage} 
+            alt={`${event.title} Official Poster`}
+            className="w-full h-full object-cover group-hover/poster:scale-105 transition-transform duration-500"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-wie-dark/40 opacity-0 group-hover/poster:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2 text-white font-sans text-xs font-bold backdrop-blur-[2px]">
+            <ZoomIn size={16} className="text-wie-gold" />
+            <span>View Full Poster</span>
+          </div>
+          <div className="absolute top-4 right-4 bg-wie-dark/80 backdrop-blur-md text-wie-gold px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-md">
+            <ImageIcon size={12} />
+            <span>Poster</span>
+          </div>
+        </div>
+      )}
 
-      {/* Title & Date Section */}
-      <div className="flex flex-col flex-grow">
-        <div className="flex items-center gap-2 text-wie-purple font-bold text-xs uppercase tracking-widest mb-3 font-sans">
-          <Calendar size={14} className="text-wie-gold" />
-          {event.displayDate}
+      <div className="p-8 lg:p-10 flex flex-col flex-grow">
+        {/* Top Meta Tags / Session / Mode */}
+        <div className="flex flex-wrap gap-2 mb-6">
+          <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 font-sans ${
+            event.mode === "Online" 
+              ? "bg-blue-50 text-blue-600 border border-blue-100" 
+              : "bg-wie-gold/10 text-wie-dark border border-wie-gold/20"
+          }`}>
+            {event.mode === "Online" ? <Globe size={10} /> : <MapPin size={10} />}
+            {event.mode}
+          </span>
+          <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-wie-purple/5 text-wie-purple border border-wie-purple/10 font-sans">
+            {event.type}
+          </span>
+          <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-wie-lavender/40 text-wie-purple border border-wie-lavender/30 font-sans">
+            {event.session}
+          </span>
         </div>
-        <h3 className="text-xl lg:text-2xl font-serif font-bold text-wie-dark mb-4 leading-tight group-hover:text-wie-purple transition-colors">
-          {event.title}
-        </h3>
-        <p className="text-gray-500 text-sm leading-relaxed mb-6 font-sans">
-          {event.description}
-        </p>
-      </div>
-      
-      {/* Footer Location Info */}
-      <div className="flex items-center gap-3 pt-6 border-t border-gray-50 mt-auto">
-        <div className="w-8 h-8 rounded-full bg-wie-lavender/20 flex items-center justify-center text-wie-purple shrink-0">
-          {event.mode === "Online" ? <Globe size={14} /> : <MapPin size={14} />}
+
+        {/* Title & Date Section */}
+        <div className="flex flex-col flex-grow">
+          <div className="flex items-center gap-2 text-wie-purple font-bold text-xs uppercase tracking-widest mb-3 font-sans">
+            <Calendar size={14} className="text-wie-gold" />
+            {event.displayDate}
+          </div>
+          <h3 className="text-xl lg:text-2xl font-serif font-bold text-wie-dark mb-3 leading-tight group-hover:text-wie-purple transition-colors">
+            {event.title}
+          </h3>
+
+          {event.speaker && (
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-wie-gold/10 text-wie-dark text-xs font-bold font-sans mb-4 w-fit border border-wie-gold/20">
+              <User size={13} className="text-wie-purple" />
+              <span>Speaker: {event.speaker}</span>
+            </div>
+          )}
+
+          <p className="text-gray-500 text-sm leading-relaxed mb-6 font-sans">
+            {event.description}
+          </p>
         </div>
-        <span className="text-xs text-gray-500 font-medium truncate font-sans">
-          {event.location}
-        </span>
+        
+        {/* Footer Location Info */}
+        <div className="flex items-center justify-between gap-3 pt-6 border-t border-gray-50 mt-auto">
+          <div className="flex items-center gap-2 truncate">
+            <div className="w-8 h-8 rounded-full bg-wie-lavender/20 flex items-center justify-center text-wie-purple shrink-0">
+              {event.mode === "Online" ? <Globe size={14} /> : <MapPin size={14} />}
+            </div>
+            <span className="text-xs text-gray-500 font-medium truncate font-sans">
+              {event.location}
+            </span>
+          </div>
+
+          {event.posterImage && (
+            <button
+              onClick={() => onOpenPoster && onOpenPoster(event.posterImage, event.title)}
+              className="text-xs font-bold text-wie-purple hover:text-wie-dark inline-flex items-center gap-1 shrink-0 font-sans cursor-pointer transition-colors"
+            >
+              <ZoomIn size={13} />
+              <span>Poster</span>
+            </button>
+          )}
+        </div>
       </div>
     </motion.div>
   );
@@ -589,6 +643,32 @@ const events = [
     category: "Talk",
     session: "2025–2026",
     description: "Bringing global expertise directly to our students through virtual lecture series."
+  },
+  {
+    id: 16,
+    title: "Pygame Workshop",
+    posterImage: "/pygame-poster.png",
+    date: "2026-08-21",
+    displayDate: "21.08.2026",
+    type: "Workshop",
+    mode: "Offline",
+    location: "ML-10, ZHCET",
+    category: "Workshop",
+    session: "2025–2026",
+    description: "Hands-on game development workshop by IEEE WIE AG ZHCET. Venue: ML-10 | Timing: 2:00 PM Onwards | Registration: ₹99 only. Scan the poster QR code to register."
+  },
+  {
+    id: 17,
+    title: "Introduction to Cybersecurity and Cryptography",
+    speaker: "Dr. Faisal Anwer",
+    date: "2026-09-01",
+    displayDate: "Dates to be announced",
+    type: "Expert Lecture",
+    mode: "Hybrid",
+    location: "ZHCET, AMU",
+    category: "Technical",
+    session: "2025–2026",
+    description: "An in-depth expert session on cybersecurity fundamentals, digital defense, network security principles, and modern cryptographic algorithms."
   }
 ];
 
@@ -597,9 +677,10 @@ export default function Events() {
   const [activeFilter, setActiveFilter] = useState("All");
   const [sortOrder, setSortOrder] = useState("latest");
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedPoster, setSelectedPoster] = useState<{ url: string; title: string } | null>(null);
 
   const sessions = ["All", "2023–2024", "2024–2025", "2025–2026"];
-  const categories = ["All", "Felicitation", "Competition", "Technical", "Talk", "Webinar", "Seminar", "Outreach", "Social"];
+  const categories = ["All", "Felicitation", "Competition", "Technical", "Workshop", "Talk", "Webinar", "Seminar", "Outreach", "Social"];
 
   const filteredAndSortedEvents = useMemo(() => {
     let result = events.filter(event => {
@@ -728,7 +809,12 @@ export default function Events() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {filteredAndSortedEvents.map((event, idx) => (
-              <EventCard key={`${event.id}-${event.session}`} event={event} idx={idx} />
+              <EventCard 
+                key={`${event.id}-${event.session}`} 
+                event={event} 
+                idx={idx} 
+                onOpenPoster={(url, title) => setSelectedPoster({ url, title })}
+              />
             ))}
           </div>
 
@@ -748,6 +834,55 @@ export default function Events() {
           )}
         </div>
       </section>
+
+      {/* Full-Screen Poster Lightbox Modal */}
+      <AnimatePresence>
+        {selectedPoster && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedPoster(null)}
+            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-2xl w-full bg-wie-dark rounded-3xl overflow-hidden shadow-2xl border border-white/20 flex flex-col max-h-[90vh]"
+            >
+              <div className="p-4 sm:p-5 border-b border-white/10 flex items-center justify-between bg-white/5">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-wie-gold/20 flex items-center justify-center text-wie-gold">
+                    <ImageIcon size={16} />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-serif font-bold text-base sm:text-lg">{selectedPoster.title}</h4>
+                    <p className="text-gray-400 text-xs font-sans">Official Event Poster</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setSelectedPoster(null)}
+                  className="w-10 h-10 rounded-full bg-white/10 text-white hover:bg-white/20 flex items-center justify-center transition-colors cursor-pointer"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+
+              <div className="p-3 sm:p-6 overflow-auto flex items-center justify-center bg-black/30">
+                <img 
+                  src={selectedPoster.url} 
+                  alt={selectedPoster.title} 
+                  className="max-h-[70vh] w-auto max-w-full object-contain rounded-2xl shadow-2xl border border-white/10"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Unified Summary Statistics */}
       <section className="pb-24">
