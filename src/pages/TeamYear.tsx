@@ -407,17 +407,391 @@ const teamData: Record<string, any[]> = {
   ],
   "2025-2026": [
     {
-      name: "New Leader",
-      role: "Incoming Chairperson",
-      branch: "STEM Engineering, Final Year",
-      bio: "Ready to take IEEE WIE AMU to new heights of innovation and tech empowerment in the upcoming session.",
-      image: "https://picsum.photos/seed/team-25-1/400/400",
+      name: "Sadia Aiman",
+      role: "Chairperson",
+      branch: "Electrical Engineering, Final Year",
+      bio: "Leading the affinity group with vision, driving STEM innovation, leadership development, and inclusive empowerment.",
       linkedin: "#",
       twitter: "#",
-      email: "leader@example.com"
+      email: "sadia@example.com"
+    },
+    {
+      name: "Agrita Ratnam",
+      role: "Mentor",
+      branch: "MTech, 2nd Year",
+      bio: "Guiding executive leadership and providing seasoned mentorship for technical and community initiatives.",
+      linkedin: "#",
+      twitter: "#",
+      email: "agrita@example.com"
+    },
+    {
+      name: "Saba Feroz Khan",
+      role: "Vice Chairperson",
+      branch: "Computer Engineering (AI), 3rd Year",
+      bio: "Spearheading cutting-edge AI and tech programs while supporting overall executive leadership and strategic vision.",
+      linkedin: "#",
+      twitter: "#",
+      email: "saba@example.com"
+    },
+    {
+      name: "Maryam Jaffri",
+      role: "Vice Chairperson",
+      branch: "Electrical Engineering, 3rd Year",
+      bio: "Fostering collaboration across branches and ensuring seamless execution of core initiatives and mentorship.",
+      linkedin: "#",
+      twitter: "#",
+      email: "maryam@example.com"
+    },
+    {
+      name: "Khadija Fatima Abbasi",
+      role: "General Secretary",
+      branch: "Petrochemical Engineering, 3rd Year",
+      bio: "Overseeing administration, project registries, event schedules, and smooth inter-team communication.",
+      linkedin: "#",
+      twitter: "#",
+      email: "khadija@example.com"
+    },
+    {
+      name: "Vikas Upadhyay",
+      role: "General Secretary",
+      branch: "BE Electrical Engineering, Final Year",
+      bio: "Managing organizational operations, documentation, and coordination across technical activities.",
+      linkedin: "#",
+      twitter: "#",
+      email: "vikas@example.com"
+    },
+    {
+      name: "Ojal Maheshwari",
+      role: "Joint Secretary",
+      branch: "Electronics Engineering, 3rd Year",
+      bio: "Assisting executive workflows, tracking membership engagement, and streamlining event pipelines.",
+      linkedin: "#",
+      twitter: "#",
+      email: "ojal@example.com"
+    },
+    {
+      name: "Sania Zehra Naqvi",
+      role: "Joint Secretary",
+      branch: "Mechanical Engineering, 2nd Year",
+      bio: "Facilitating team operations and organizing active coordination across diverse student bodies.",
+      linkedin: "#",
+      twitter: "#",
+      email: "sania@example.com"
+    },
+    {
+      name: "Mohammad Shiraz",
+      role: "Head of Operations",
+      branch: "Electrical Engineering, 3rd Year",
+      bio: "Directing operational logistics, resource deployment, venue readiness, and on-ground execution.",
+      linkedin: "#",
+      twitter: "#",
+      email: "shiraz@example.com"
+    },
+    {
+      name: "Sadia Peerzada",
+      role: "Webmaster",
+      branch: "BCA, 3rd Year",
+      bio: "Architecting and maintaining web portals, ensuring fast performance and responsive user experiences.",
+      linkedin: "#",
+      twitter: "#",
+      email: "sadia.p@example.com"
+    },
+    {
+      name: "Priyanshi Varshney",
+      role: "Webmaster",
+      branch: "Mechanical Engineering, 2nd Year",
+      bio: "Overseeing website updates, accessibility, and modern interactive web features for the community.",
+      linkedin: "#",
+      twitter: "#",
+      email: "priyanshi@example.com"
+    },
+    {
+      name: "Naura Sarfaraz",
+      role: "Coordinator - Editorial Team",
+      branch: "Computer Engineering, 2nd Year",
+      bio: "Leading the editorial division, producing high-quality articles, publications, and chapter newsletters.",
+      linkedin: "#",
+      twitter: "#",
+      email: "naura@example.com"
+    },
+    {
+      name: "Nishtha Verma",
+      role: "Co-Coordinator - Editorial Team",
+      branch: "Electronics Engineering (VLSI), 2nd Year",
+      bio: "Curating inspiring written content, documentation, and event reports with meticulous detail.",
+      linkedin: "#",
+      twitter: "#",
+      email: "nishtha@example.com"
+    },
+    {
+      name: "Ayaan Azeez",
+      role: "Editorial Team Member",
+      branch: "Computer Engineering, 2nd Year",
+      bio: "Contributing to technical writing, event coverage, creative blogs, and editorial reviews.",
+      linkedin: "#",
+      twitter: "#",
+      email: "ayaan@example.com"
+    },
+    {
+      name: "Rafat Fatima",
+      role: "Coordinator - Design Team",
+      branch: "Electrical Engineering, 3rd Year",
+      bio: "Directing creative visual branding, UI assets, and elegant digital design language for all events.",
+      linkedin: "#",
+      twitter: "#",
+      email: "rafat@example.com"
+    },
+    {
+      name: "Asna Mirza",
+      role: "Co-Coordinator - Design Team",
+      branch: "BCA, 3rd Year",
+      bio: "Designing engaging social media posters, typography palettes, and visual illustrations.",
+      linkedin: "#",
+      twitter: "#",
+      email: "asna.m@example.com"
+    },
+    {
+      name: "Mohd. Mudassir Safir",
+      role: "Design Team Member",
+      branch: "Electrical Engineering, 2nd Year",
+      bio: "Crafting modern graphics, promotional collaterals, and aesthetic digital banners.",
+      linkedin: "#",
+      twitter: "#",
+      email: "mudassir@example.com"
+    },
+    {
+      name: "Insha Zaheer",
+      role: "Design Team Member",
+      branch: "Electronics Engineering (VLSI), 2nd Year",
+      bio: "Developing creative artwork, brand kits, and presentation assets for IEEE WIE campaigns.",
+      linkedin: "#",
+      twitter: "#",
+      email: "insha@example.com"
+    },
+    {
+      name: "Mahwish Fatma",
+      role: "Coordinator - Technical Team",
+      branch: "Computer Engineering, 2nd Year",
+      bio: "Organizing coding bootcamps, developer workshops, hackathons, and technical learning tracks.",
+      linkedin: "#",
+      twitter: "#",
+      email: "mahwish@example.com"
+    },
+    {
+      name: "Abida Kulsoom",
+      role: "Co-Coordinator - Technical Team",
+      branch: "Computer Engineering, 3rd Year",
+      bio: "Facilitating hands-on technical sessions, project mentorship, and developer support.",
+      linkedin: "#",
+      twitter: "#",
+      email: "abida@example.com"
+    },
+    {
+      name: "Dhatri Garg",
+      role: "Technical Team Member",
+      branch: "Electronics Engineering (VLSI), 2nd Year",
+      bio: "Building innovative software and hardware projects while mentoring junior developers.",
+      linkedin: "#",
+      twitter: "#",
+      email: "dhatri@example.com"
+    },
+    {
+      name: "Aakriti Gupta",
+      role: "Technical Team Member",
+      branch: "Electronics Engineering, 2nd Year",
+      bio: "Supporting technical labs, coding challenges, and collaborative engineering projects.",
+      linkedin: "#",
+      twitter: "#",
+      email: "aakriti@example.com"
+    },
+    {
+      name: "Nida Abdin",
+      role: "Technical Team Member",
+      branch: "Electronics Engineering, 2nd Year",
+      bio: "Contributing to hands-on development, algorithm problem-solving, and tech initiatives.",
+      linkedin: "#",
+      twitter: "#",
+      email: "nida@example.com"
+    },
+    {
+      name: "Khushi Senger",
+      role: "Technical Team Member",
+      branch: "Electrical Engineering, 2nd Year",
+      bio: "Assisting in technical workshops, hardware integrations, and developer hack days.",
+      linkedin: "#",
+      twitter: "#",
+      email: "khushi@example.com"
+    },
+    {
+      name: "Nikita Chaturvedi",
+      role: "Coordinator - Workshop & Project Team",
+      branch: "Electronics Engineering (VLSI), 2nd Year",
+      bio: "Coordinating hands-on engineering workshops, tech expos, and practical research projects.",
+      linkedin: "#",
+      twitter: "#",
+      email: "nikita.c@example.com"
+    },
+    {
+      name: "Maariyah Anjum Faizan",
+      role: "Co-Coordinator - Workshop & Project Team",
+      branch: "BCA, 3rd Year",
+      bio: "Managing project roadmaps, training modules, and technical workshop logistics.",
+      linkedin: "#",
+      twitter: "#",
+      email: "maariyah@example.com"
+    },
+    {
+      name: "Ritika Gupta",
+      role: "Workshop & Project Team Member",
+      branch: "BCA, 3rd Year",
+      bio: "Supporting workshop materials, project demonstrations, and participant engagement.",
+      linkedin: "#",
+      twitter: "#",
+      email: "ritika.g@example.com"
+    },
+    {
+      name: "Kashif Ehsan Hashmi",
+      role: "Workshop & Project Team Member",
+      branch: "Electrical Engineering, 2nd Year",
+      bio: "Facilitating hands-on experimentation labs and technical project showcases.",
+      linkedin: "#",
+      twitter: "#",
+      email: "kashif@example.com"
+    },
+    {
+      name: "Yusra Muzaffar",
+      role: "Workshop & Project Team Member",
+      branch: "Civil Engineering, 2nd Year",
+      bio: "Assisting in multi-disciplinary workshops and project resource coordination.",
+      linkedin: "#",
+      twitter: "#",
+      email: "yusra@example.com"
+    },
+    {
+      name: "Mohammad Rohaan",
+      role: "Workshop & Project Team Member",
+      branch: "Computer Engineering (AI), 2nd Year",
+      bio: "Designing practical AI demonstrations and technical workshop modules.",
+      linkedin: "#",
+      twitter: "#",
+      email: "rohaan@example.com"
+    },
+    {
+      name: "Affan Abdullah",
+      role: "Coordinator - PR Team",
+      branch: "Electronics Engineering (VLSI), 2nd Year",
+      bio: "Steering public relations, branding campaigns, press releases, and media outreach.",
+      linkedin: "#",
+      twitter: "#",
+      email: "affan@example.com"
+    },
+    {
+      name: "Mariya Kaleem",
+      role: "Co-Coordinator - PR Team",
+      branch: "Electrical Engineering, 2nd Year",
+      bio: "Strengthening community connections, media presence, and public communications.",
+      linkedin: "#",
+      twitter: "#",
+      email: "mariya@example.com"
+    },
+    {
+      name: "Bushra Khan",
+      role: "PR Team Member",
+      branch: "BE Electrical Engineering, Final Year",
+      bio: "Advancing outreach communications and professional networking for major chapter events.",
+      linkedin: "#",
+      twitter: "#",
+      email: "bushra@example.com"
+    },
+    {
+      name: "Samar Fatima",
+      role: "Coordinator - Management Team",
+      branch: "Chemical Engineering, 3rd Year",
+      bio: "Directing overall operational management, volunteer distribution, and crowd coordination.",
+      linkedin: "#",
+      twitter: "#",
+      email: "samar.f@example.com"
+    },
+    {
+      name: "Areeb Khan",
+      role: "Co-Coordinator - Management Team",
+      branch: "Civil Engineering, 2nd Year",
+      bio: "Managing on-ground logistical workflows, venue preparation, and event protocols.",
+      linkedin: "#",
+      twitter: "#",
+      email: "areeb@example.com"
+    },
+    {
+      name: "Abdul Samad Khan",
+      role: "Management Team Member",
+      branch: "Electrical Engineering, 2nd Year",
+      bio: "Ensuring effective resource deployment and volunteer support during all sessions.",
+      linkedin: "#",
+      twitter: "#",
+      email: "abdulsamad@example.com"
+    },
+    {
+      name: "Md Shahbaaz Jafar",
+      role: "Management Team Member",
+      branch: "Electronics Engineering, 2nd Year",
+      bio: "Facilitating smooth event execution, attendee coordination, and management duties.",
+      linkedin: "#",
+      twitter: "#",
+      email: "shahbaaz@example.com"
+    },
+    {
+      name: "Sandeep Singh",
+      role: "Management Team Member",
+      branch: "Mechanical Engineering, 2nd Year",
+      bio: "Coordinating event equipment, hospitality, and ground management for attendees.",
+      linkedin: "#",
+      twitter: "#",
+      email: "sandeep@example.com"
+    },
+    {
+      name: "Aalima Dilshad",
+      role: "Management Team Member",
+      branch: "Electronics Engineering, 2nd Year",
+      bio: "Supporting operations, venue management, and volunteer coordination with enthusiasm.",
+      linkedin: "#",
+      twitter: "#",
+      email: "aalima@example.com"
+    },
+    {
+      name: "Fatima Khan",
+      role: "Management Team Member",
+      branch: "BCA, 3rd Year",
+      bio: "Managing event registration desks, attendee queries, and administrative logistics.",
+      linkedin: "#",
+      twitter: "#",
+      email: "fatima.k@example.com"
+    },
+    {
+      name: "Syed Ali Jawad",
+      role: "Coordinator - Outreach Team",
+      branch: "Electronics Engineering, 2nd Year",
+      bio: "Spearheading external university outreach, school initiatives, and community impact drives.",
+      linkedin: "#",
+      twitter: "#",
+      email: "alijawad@example.com"
+    },
+    {
+      name: "Sarah Athar",
+      role: "Co-Coordinator - Outreach Team",
+      branch: "Computer Engineering, 2nd Year",
+      bio: "Building external partnerships, student networking initiatives, and social empowerment programs.",
+      linkedin: "#",
+      twitter: "#",
+      email: "sarah@example.com"
     }
   ]
 };
+
+// Aliases for convenient navigation (e.g. /team/2026 or /team/2025-2026)
+teamData["2026"] = teamData["2025-2026"];
+teamData["2025"] = teamData["2024-2025"];
+teamData["2024"] = teamData["2023-2024"];
+teamData["2023"] = teamData["2022-2023"];
 
 // Helper to extract initials
 function getInitials(name: string) {

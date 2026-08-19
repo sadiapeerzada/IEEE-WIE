@@ -35,8 +35,8 @@ const teamYears = [
   {
     year: "2025-2026",
     label: "Session 2025-26",
-    description: "The incoming visionaries preparing for the next chapter.",
-    icon: <ArrowRight className="text-wie-gold" />
+    description: "The dynamic executive committee leading current initiatives, workshops, and empowerment.",
+    icon: <Users className="text-wie-gold" />
   }
 ];
 

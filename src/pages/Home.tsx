@@ -224,15 +224,22 @@ export default function Home() {
             >
               <Quote className="absolute top-6 right-6 text-wie-lavender opacity-30" size={64} />
               <p className="text-gray-600 italic mb-8 relative z-10 leading-relaxed">
-                "My tenure as Chairperson has been a journey of transformation, leadership, and growth. Leading such a passionate team helped me evolve both professionally and personally. Together, we achieved impactful milestones."
+                "Serving as the Outreach Coordinator has been a deeply rewarding journey. Working with such an energetic and purposeful team has been both inspiring and fulfilling. I've cherished mentoring students and witnessing their growth through meaningful community engagement."
               </p>
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-full bg-wie-purple/20 overflow-hidden border-2 border-wie-gold">
-                  <img src="https://picsum.photos/seed/sadia-aiman/100/100" alt="Sadia Aiman" referrerPolicy="no-referrer" />
+                  <img 
+                    src="/qurratulain.png" 
+                    alt="Dr. Qurratulain" 
+                    referrerPolicy="no-referrer" 
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = "https://picsum.photos/seed/outreach/100/100";
+                    }}
+                  />
                 </div>
                 <div>
-                  <h4 className="font-serif font-bold text-wie-dark">Sadia Aiman</h4>
-                  <p className="text-xs text-wie-gold font-bold uppercase tracking-widest">Chairperson</p>
+                  <h4 className="font-serif font-bold text-wie-dark">Dr. Qurratulain</h4>
+                  <p className="text-xs text-wie-gold font-bold uppercase tracking-widest">Outreach Coordinator</p>
                 </div>
               </div>
             </motion.div>
